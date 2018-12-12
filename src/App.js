@@ -64,7 +64,9 @@ class App extends Component {
                 <div className={'buttons'}>
                     {this.renderLoginButton()}
                     {modal}
+                <button id="btnLogin" href="#">Login anónimo</button>
                 </div>
+                <script src="index.js"></script>
             </div>
         );
     }

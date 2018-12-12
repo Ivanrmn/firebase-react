@@ -8,13 +8,31 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 firebase.initializeApp({
-    apiKey: "AIzaSyD-l23KQDtAZKJ4xQoeAYYVnGmWzMQXodQ",
-    authDomain: "fir-con-react.firebaseapp.com",
-    databaseURL: "https://fir-con-react.firebaseio.com",
-    projectId: "fir-con-react",
-    storageBucket: "fir-con-react.appspot.com",
-    messagingSenderId: "16039068622"
+    apiKey: "AIzaSyAWY4jZn0tLeDzjTvcnBD29U0UKtGYz7aQ",
+    authDomain: "despliegue-de-apps-web.firebaseapp.com",
+    databaseURL: "https://despliegue-de-apps-web.firebaseio.com",
+    projectId: "despliegue-de-apps-web",
+    storageBucket: "despliegue-de-apps-web.appspot.com",
+    messagingSenderId: "654902042974"
 });
+
+window.onload=function(){
+
+  const btnLogin = document.getElementById('btnLogin');
+
+btnLogin.addEventListener('click', e => {
+    firebase.auth().signInAnonymously();
+});
+
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    console.log(firebaseUser);
+    if(firebaseUser) {
+        btnLogin.classList.add('hide');
+    } else {
+        btnLogin.classList.remove('hide');
+    }
+});
+}
 
 ReactDOM.render(<App/>, document.getElementById('root'));
 
